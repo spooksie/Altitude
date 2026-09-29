@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&family=Sora:wght@500;600&display=swap">
+<style>
+html,body{margin:0;width:1200px;height:630px;overflow:hidden;background:#07090F}
+.card{position:relative;width:1200px;height:630px;box-sizing:border-box;padding:76px 80px;display:flex;flex-direction:column;justify-content:space-between;color:#EEF1F8;font-family:'Instrument Sans',sans-serif}
+.lockup{display:flex;align-items:center;gap:26px}
+.lockup svg{width:118px;height:118px;flex:none}
+.word{font:600 64px/1 'Sora',sans-serif;letter-spacing:-.01em}
+h1{margin:0;font:500 54px/1.04 'Sora',sans-serif;letter-spacing:-.045em;max-width:12ch}
+.sub{margin:18px 0 0;font-size:26px;color:#8C93A6}
+.foot{display:flex;align-items:center;gap:14px;font:500 17px/1 'Sora',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8C93A6}
+.foot b{width:10px;height:10px;border-radius:50%;background:#4FD1FF}
+.column{position:absolute;right:80px;top:70px;bottom:70px;width:370px}
+.column i{position:absolute;left:0;right:0;border-radius:99px;background:#EEF1F8}
+.column .dot{position:absolute;right:64px;width:22px;height:22px;border-radius:50%;background:#4FD1FF;box-shadow:0 0 0 9px rgba(79,209,255,.16);translate:0 50%}
+.label{position:absolute;left:0;font:500 13px/1 'Sora',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8C93A6}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="lockup">
+    <svg viewBox="0 0 180 180" aria-hidden="true"><g fill="#EEF1F8">
+      <rect x="14" y="166.5" width="152" height="7" rx="3.5"/><rect x="14" y="157.75" width="152" height="6.5" rx="3.25"/><rect x="14" y="148" width="152" height="6" rx="3"/><rect x="14" y="137.25" width="152" height="5.5" rx="2.75"/><rect x="14" y="124.5" width="152" height="5" rx="2.5"/><rect x="14" y="109.75" width="152" height="4.5" rx="2.25"/><rect x="14" y="92" width="152" height="4" rx="2"/><rect x="14" y="70.25" width="152" height="3.5" rx="1.75"/><rect x="14" y="43.5" width="152" height="3" rx="1.5"/><rect x="14" y="10.75" width="152" height="2.5" rx="1.25"/>
+    </g><circle cx="146" cy="27" r="8" fill="#4FD1FF"/></svg>
+    <span class="word">altitude</span>
+  </div>
+  <div>
+    <h1>An elite-level .com domain.</h1>
+    <p class="sub">Brokered by ATM Holdings</p>
+  </div>
+  <div class="foot"><b></b>Altitude.com</div>
+  <div class="column" id="col"></div>
+</div>
+<script>
+  // Same curve as the site's hero air column: dense at the ground, thinning with height.
+  var col = document.getElementById('col');
+  for (var k = 0; k <= 15; k++) {
+    var i = document.createElement('i');
+    i.style.bottom = (100 * Math.pow(k / 15, 1.8)) + '%';
+    i.style.height = (7 - k * 0.38) + 'px';
+    i.style.opacity = (1 - k * 0.045) * 0.9;
+    col.appendChild(i);
+  }
+  var d = document.createElement('span'); d.className = 'dot'; d.style.bottom = '62%'; col.appendChild(d);
+  var l = document.createElement('span'); l.className = 'label'; l.textContent = 'Thin air'; l.style.top = '-26px'; col.appendChild(l);
+</script>
+</body>
+</html>
