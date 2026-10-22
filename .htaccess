@@ -1,0 +1,22 @@
+# Lets the whole app live in the site's document root on shared hosting, where
+# the document root can't be pointed at public/. Every request is routed into
+# public/, so nothing outside it (.env, .git, vendor, storage, config) can ever
+# be fetched over the web. Local dev (Herd) serves public/ directly and never
+# reads this file.
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # cPanel AutoSSL proves domain ownership through this path; without the
+    # exception the HTTPS certificate stops renewing.
+    RewriteRule ^\.well-known/acme-challenge/ - [L]
+
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
+# If mod_rewrite is ever unavailable, refuse everything rather than expose the
+# project files.
+<IfModule !mod_rewrite.c>
+    Require all denied
+</IfModule>
