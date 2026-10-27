@@ -74,7 +74,7 @@
         '@context' => 'https://schema.org',
         '@graph' => [
             ['@type' => 'WebSite', '@id' => $url.'#website', 'url' => $url, 'name' => 'Altitude.com', 'description' => $description, 'inLanguage' => 'en', 'copyrightHolder' => ['@id' => 'https://coherence.com/#organization'], 'publisher' => ['@id' => 'https://coherence.com/#organization'], 'creator' => ['@id' => 'https://qquantum.ai/#organization']],
-            ['@type' => 'Organization', '@id' => 'https://coherence.com/#organization', 'name' => 'Coherence', 'legalName' => 'Booth.com Ltd', 'url' => 'https://coherence.com/'],
+            ['@type' => 'Organization', '@id' => 'https://coherence.com/#organization', 'name' => 'Coherence', 'url' => 'https://coherence.com/'],
             ['@type' => 'Organization', '@id' => 'https://qquantum.ai/#organization', 'name' => 'QQuantum.ai', 'url' => 'https://qquantum.ai/', 'description' => 'AI systems engineering studio in Barcelona — brand identity, logo and web design, AI agents and custom AI systems.'],
             ['@type' => 'WebPage', '@id' => $url.'#webpage', 'url' => $url, 'name' => $title, 'description' => $description, 'isPartOf' => ['@id' => $url.'#website'], 'about' => ['@id' => $url.'#domain'], 'primaryImageOfPage' => ['@type' => 'ImageObject', 'url' => $ogImage, 'width' => 1200, 'height' => 630], 'inLanguage' => 'en'],
             [
@@ -665,7 +665,7 @@ h2{margin:18px 0 0;font:500 clamp(34px,5vw,64px)/1.02 var(--display);letter-spac
             </div>
         </div>
         <div class="foot-bottom">
-            <p>&copy;{{ date('Y') }} Booth.com Ltd. All Rights Reserved.</p>
+            <p>&copy;{{ date('Y') }} Coherence. All Rights Reserved.</p>
             <div class="foot-credits">
                 <a class="credit-qq" href="https://qquantum.ai/creative-design/domain-landing-pages" target="_blank" rel="noopener" title="QQuantum.ai — domain landing pages designed and built by an AI systems engineering studio">
                     <span>Designed &amp; built by</span>
